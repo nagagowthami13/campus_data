@@ -20,19 +20,38 @@ def main():
     print("       SVECW CAMPUS NAVIGATOR")
     print("========================================")
 
-    # TODO: 1. Get locations from get_locations()
-    
-    # TODO: 2. Print available locations
-    
-    # TODO: 3. Ask the user for 'source' and 'destination'
-    
-    # TODO: 4. Add Input Validation 
-    # (e.g., handle invalid location, source == destination)
+    # 1. Get locations from get_locations()
+    locations = get_locations()
 
-    # TODO: 5. Call find_shortest_route(ROUTES, source, destination)
-    
-    # TODO: 6. Call display_route(route, distance)
-    pass
+    # 2. Print available locations
+    print("\nAvailable Locations:")
+    for location in locations:
+        print(f"- {location}")
+    print()
+
+    # 3. Ask the user for 'source' and 'destination'
+    source_input = input("Enter source: ").strip()
+    dest_input = input("Enter destination: ").strip()
+
+    # 4. Add Input Validation
+    location_lookup = {loc.lower(): loc for loc in locations}
+
+    if not source_input or source_input.lower() not in location_lookup:
+        print(f"\nError: '{source_input}' is not a valid campus location.")
+        return
+
+    if not dest_input or dest_input.lower() not in location_lookup:
+        print(f"\nError: '{dest_input}' is not a valid campus location.")
+        return
+
+    source = location_lookup[source_input.lower()]
+    destination = location_lookup[dest_input.lower()]
+
+    # 5. Call find_shortest_route(ROUTES, source, destination)
+    route, distance = find_shortest_route(ROUTES, source, destination)
+
+    # 6. Call display_route(route, distance)
+    display_route(route, distance)
 
 
 if __name__ == "__main__":

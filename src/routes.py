@@ -23,7 +23,35 @@ ROUTES = {
 }
 """
 
-# TODO: Define the full ROUTES dictionary following the example above
-ROUTES = {}
+ROUTES = {
+    "Main Gate": {
+        "CSE Block": 120,
+        "Canteen": 180,
+        "Admin Block": 150,
+    },
+    "CSE Block": {
+        "Main Gate": 120,
+        "Library": 80,
+        "Canteen": 100,
+    },
+    "Library": {
+        "CSE Block": 80,
+        "Auditorium": 110,
+        "Admin Block": 90,
+    },
+    "Canteen": {
+        "Main Gate": 180,
+        "CSE Block": 100,
+        "Auditorium": 130,
+    },
+    "Admin Block": {
+        "Main Gate": 150,
+        "Library": 90,
+    },
+    "Auditorium": {
+        "Library": 110,
+        "Canteen": 130,
+    },
+}
 
 

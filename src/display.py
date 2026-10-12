@@ -19,7 +19,12 @@ def display_route(route, distance):
         route (list): List of location names in order.
         distance (int/float): The total distance of the route.
     """
-    # TODO: Implement the logic to format and print the route and distance
-    pass
+    if not route:
+        print("\nNo route found between the specified locations.")
+        return
+
+    print("\nShortest route:")
+    print(" -> ".join(route))
+    print(f"\nTotal distance: {distance} m")
 
 
